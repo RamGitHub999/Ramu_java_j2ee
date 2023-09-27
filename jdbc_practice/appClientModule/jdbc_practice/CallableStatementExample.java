@@ -13,12 +13,12 @@ public class CallableStatementExample {
 			Class.forName("oracle.jdbc.driver.OracleDriver"); // to avoid exception here ClassNotFoundException or else we can use try catch blocks also
 			Connection c=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","system","orcl" );
 			CallableStatement cst=c.prepareCall("{call getStudentDetails(?,?)}");// this how we call procedure in jdbc here getStudentDetails is procedure name we created in db
-			
+			//in  above line question marks symbols are called as position parameters
 			cst.setInt(1, 12); // static values 
-			cst.registerOutParameter(2, Types.VARCHAR);//register for output pramater
+			cst.registerOutParameter(2, Types.VARCHAR);//register for output position parameter index in callable statement
 			cst.execute();//execute procedure
 		
-			String studentName =cst.getString(2);//get outparameter based on type and index
+			String studentName =cst.getString(2);//get outparameter based on type and position parameter in callable statement
 			
 			System.out.println("student name : "+studentName);
 			
