@@ -23,7 +23,7 @@ public class DbFunctionsCallingUsingCallableStatements
 	 /
 	 commit;
 	 ---execution of function---
-	 select avgmarks(12,14) as avaregeMarks from dual;*/
+	 select avgmarks(12,14) as avaregeMarks from dual; here passed values are the static values based on the db values*/
 	
 	try {
 		
